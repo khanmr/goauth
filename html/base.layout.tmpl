@@ -1,0 +1,38 @@
+{{define "base"}}
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <title>{{template "title" .}} - GoAuth</title>
+    </head>
+    <body>
+        <header>
+            <h1 class="text-center"><a href='/'>GoAuth</a></h1>
+        </header>
+        <div class="container">
+            <nav class="navbar navbar-light bg-light">
+                <a href='/' class="nav-link">Home</a>
+                    {{if .IsAuthenticated}}
+                        <a href='/user/profile' class="nav-link">Profile</a>
+                        <form action='/user/logout' method='POST' class="form-inline">
+                        <button class="btn btn-outline-success my-2 my-sm-0">Logout</button>
+                        </form>
+                    {{else}}
+                        <a href='/user/signup' class="nav-link">Signup</a>
+                        <a href='/user/login' class="nav-link">Login</a>
+                    {{end}}
+            </nav>
+        </div>
+        <main class="container mt-5">
+            {{with .Flash}}
+            <div class="alert alert-success" role="alert">{{.}}</div>
+            {{end}}
+            {{template "main" .}}
+        </main>
+        {{template "footer" .}}
+    </body>
+</html>
+{{end}}

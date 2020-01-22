@@ -1,0 +1,12 @@
+{{template "base" .}}
+
+{{define "title"}}Home{{end}}
+
+{{define "main"}}
+        <h2>Welcome to GoAuth!</h2>
+        {{if .IsAuthenticated}}
+        <p></p>
+        {{else}}
+        <p>Please <a href='/user/signup'>Sign up</a> or <a href='/user/login'>Login!</a></p>
+        {{end}}
+{{end}}

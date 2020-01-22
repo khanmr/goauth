@@ -1,0 +1,35 @@
+{{template "base" .}}
+
+{{define "title"}}Signup{{end}}
+
+{{define "main"}}
+<form action='/user/signup' method='POST' novalidate>
+    {{with .Form}}
+        <div class="form-group col-md-4">
+            <label for="inputName">Name:</label>
+            {{with .Errors.Get "name"}}
+                <label class="alert alert-secondary" role="alert">{{.}}</label>
+            {{end}}
+            <input type='text' name='name' value='{{.Get "name"}}' class="form-control" id="inputName">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputEmail">Email:</label>
+            {{with .Errors.Get "email"}}
+                <label class="alert alert-secondary" role="alert">{{.}}</label>
+            {{end}}
+            <input type='email' name='email' value='{{.Get "email"}}' class="form-control" id="inputEmail">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputPassword">Password:</label>
+            {{with .Errors.Get "password"}}
+                <label class="alert alert-secondary" role="alert">{{.}}</label>
+            {{end}}
+            <input type='password' name='password' class="form-control" id="inputPassword">
+        </div>
+        <div class="form-group col-md-4">
+            <input type='submit' value='Signup' class="btn btn-primary">
+        </div>
+    {{end}}
+</form>
+<p>Already have an account? Click <a href='/user/login'>here to Login.</a></p>
+{{end}}
