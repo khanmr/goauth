@@ -9,3 +9,5 @@ require (
 	github.com/justinas/alice v1.2.0
 	golang.org/x/crypto v0.0.0-20181009213950-7c1a557ab941
 )
+
+// +heroku goVersion go1.13
