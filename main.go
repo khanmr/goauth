@@ -30,7 +30,7 @@ type application struct {
 func main() {
 	addr := flag.String("addr", ":3000", "HTTP network address")
 	// Define a new command-line flag for the MySQL DSN string.
-	dsn := flag.String("dsn", "bcc599f89a5690:1713a05c@us-cdbr-iron-east-05.cleardb.net/heroku_31a6eedf4bba50f?reconnect=true&parseTime=true", "MySQL data source name")
+	dsn := flag.String("dsn", "bcc599f89a5690:1713a05c@us-cdbr-iron-east-05.cleardb.net/heroku_31a6eedf4bba50f?reconnect=true", "MySQL data source name")
 	secret := flag.String("secret", "s6Ndh+pPbnzHbS*+9Pk8qGWhTzbpa@ge", "Secret key")
 	flag.Parse()
 
